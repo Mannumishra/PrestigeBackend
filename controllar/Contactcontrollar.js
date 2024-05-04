@@ -22,7 +22,21 @@ const createContact = async (req, res) => {
         })
     }
 }
-
+const getRecord = async(req,res)=>{
+    try {
+        let data =await contact.find()
+        res.status(200).json({
+            success:true,
+            data:data
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            mess: "Internal Server Error"
+        })
+    }
+}
 module.exports = {
-    createContact:createContact
+    createContact:createContact,
+    getRecord:getRecord
 }
