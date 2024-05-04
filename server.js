@@ -1,5 +1,6 @@
 const express = require("express")
 const categoryrouter = require("./routes/CategoryRouter")
+require("dotenv").config()
 require("./db/ConnectDb")
 const cors = require("cors")
 const subcategoryRouter = require("./routes/SubcategoryRouter")
