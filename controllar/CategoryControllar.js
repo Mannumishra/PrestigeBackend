@@ -17,15 +17,17 @@ const uploadCloundanary = async (file) => {
 const createCategory = async (req, res) => {
     try {
         console.log(req.body)
-        const { categoryname, description } = req.body
-        if (!categoryname || description) {
-           return res.status(401).json({
-                success: false,
-                mess: "Please fill All field"
-            })
-        }
-        const data = new category({ categoryname, description })
         console.log(req.files)
+
+        const { categoryname, description } = req.body
+        // if (!categoryname || description) {
+        //     return res.status(401).json({
+        //         success: false,
+        //         mess: "Please fill All field"
+        //     })
+        // }
+        const data = new category({ categoryname, description })
+        console.log("req,file",req.files)
         if (req.files.image) {
             const url = await uploadCloundanary(req.files.image[0].path)
             data.image = url
