@@ -19,7 +19,7 @@ const createCategory = async (req, res) => {
         console.log(req.body)
         const { categoryname, description } = req.body
         if (!categoryname || description) {
-            res.status(401).json({
+           return res.status(401).json({
                 success: false,
                 mess: "Please fill All field"
             })
@@ -94,30 +94,30 @@ const updateCategory = async (req, res) => {
             data.categoryname = req.body.categoryname ?? data.categoryname
             data.description = req.body.description ?? data.description
             if (req.files.image) {
-               try {
-                fs.unlinkSync(data.image)
-               } catch (error) {}
+                try {
+                    fs.unlinkSync(data.image)
+                } catch (error) { }
                 const url = await uploadCloundanary(req.files.image[0].path)
                 data.image = url
             }
             if (req.files.image1) {
                 try {
                     fs.unlinkSync(data.image1)
-                   } catch (error) {}
+                } catch (error) { }
                 const url = await uploadCloundanary(req.files.image1[0].path)
                 data.image1 = url
             }
             if (req.files.image2) {
                 try {
                     fs.unlinkSync(data.image2)
-                   } catch (error) {}
+                } catch (error) { }
                 const url = await uploadCloundanary(req.files.image2[0].path)
                 data.image2 = url
             }
             if (req.files.image3) {
                 try {
                     fs.unlinkSync(data.image3)
-                   } catch (error) {}
+                } catch (error) { }
                 const url = await uploadCloundanary(req.files.image3[0].path)
                 data.image3 = url
             }
