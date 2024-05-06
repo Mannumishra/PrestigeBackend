@@ -4,12 +4,12 @@ const createCategory = async (req, res) => {
     try {
         console.log(req.body)
         const { categoryname ,subcategoryname } = req.body
-        if (!categoryname || !subcategoryname) {
-            return res.status(401).json({
-                success: false,
-                mess: "Please fill All field"
-            })
-        }
+        // if (!categoryname || !subcategoryname) {
+        //     return res.status(401).json({
+        //         success: false,
+        //         mess: "Please fill All field"
+        //     })
+        // }
         const data = new subcategory({ categoryname ,subcategoryname })
         await data.save()
         res.status(200).json({
