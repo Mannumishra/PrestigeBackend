@@ -18,9 +18,9 @@ const uploadCloundanary = async (file) => {
 const createProduct = async (req, res) => {
     try {
         console.log("i am hit", req.body);
-        console.log(req.files);
         const { categoryname, subcategoryname, productname, businesstype, material, length, volteage, application, } = req.body;
         const data = new product({ categoryname, subcategoryname, productname, businesstype, material, length, volteage, application })
+        console.log(req.files);
         if (req.files.image) {
             const url = await uploadCloundanary(req.files.image[0].path)
             data.image = url
