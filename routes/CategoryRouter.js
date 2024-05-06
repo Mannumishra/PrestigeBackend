@@ -4,7 +4,7 @@ const categoryrouter = require("express").Router()
 const multer = require("multer")
 
 
-const storage = multer.diskStorage({
+const storage = multer.memoryStorage({
     destination: function (req, file, cb) {
         cb(null, './Public/category')
     },
