@@ -17,7 +17,7 @@ app.use("/api", categoryrouter)
 app.use("/api", subcategoryRouter)
 app.use("/api", productrouter)
 app.use("/api", contactRouter)
-app.listen(8000, () => {
-    console.log("Server is running at 8000 port");
+app.listen(3230, () => {
+    console.log("Server is running at 3230 port");
 })
 
